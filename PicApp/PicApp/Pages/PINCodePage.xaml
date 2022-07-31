@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PicApp;assembly=PicApp"
+             x:Class="PicApp.Pages.PINCodePage"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label x:Name="lblPwd"
+                   FontSize="Title"
+                   Text="Введите PIN-код для регистации:"
+                   Grid.Row="0"
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   HorizontalOptions="Fill" 
+                   VerticalOptions="Center"
+                />
+            <Entry IsPassword="True" 
+                   x:Name="Password" 
+                   MaxLength="4"
+                   TextColor="Black" 
+                   Placeholder="PIN"
+                   HorizontalOptions="Fill" 
+                   VerticalOptions="Center"
+                   Grid.Row="1"
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2" 
+                   TextChanged="Password_TextChanged"/>
+            <Image x:Name="eyeImage"  
+                   Source="{local:ImageResource PicApp.Images.show_icon.png}" 
+                   Aspect="AspectFit"
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="FillAndExpand" 
+                   Grid.Row="1"
+                   Grid.Column="1" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ShowHidePass" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label x:Name="lblInfoMsg"
+                   FontSize="Small"
+                   TextColor="Red"
+                   VerticalTextAlignment="Center" 
+                   HorizontalTextAlignment="Center"
+                   Grid.Row="2"
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   HorizontalOptions="Fill" 
+                   VerticalOptions="Center"
+                />
+            <Button x:Name="endPwdButton" 
+                    IsEnabled="false"
+                    Text="Войти" 
+                    Clicked="endPwdButton_Click"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"/>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
